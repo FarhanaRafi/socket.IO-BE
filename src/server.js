@@ -9,19 +9,10 @@ import { newConnectionHandler } from "./socket/index.js";
 const expressServer = express();
 const port = process.env.PORT || 3001;
 
-// **************************** SOCKET.IO **************************
 const httpServer = createServer(expressServer);
 const socketioServer = new Server(httpServer);
 
 socketioServer.on("connection", newConnectionHandler);
-
-// this constructor expects to receive an HTTP-SERVER as parameter (NOT AN EXPRESS SERVER!!!!!)
-
-// *************************** MIDDLEWARES *************************
-
-// *************************** ENDPOINTS ***************************
-
-// ************************* ERROR HANDLERS ************************
 
 mongoose.connect(process.env.MONGO_URL);
 
